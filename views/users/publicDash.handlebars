@@ -1,0 +1,43 @@
+<div>
+    <h1>{{title}}</h1>
+    <br>
+    {{#if alreadyFollowed}}
+    <form method="POST">
+        <button type="submit" class="unfollow-button" name="unfollowButton" value="1">Unfollow User</button>
+    </form>
+    {{else}}
+    <form method="POST">
+        <button type="submit" class="follow-button" name="followButton" value="2">Follow User</button>
+    </form>
+    {{/if}}
+
+    {{#if traderCompanies.length}}
+        <div class="listLayout">
+            {{#each traderCompanies}}
+            <div class="companyBox">
+                <a href="../companies/{{this.ticker}}">
+                    {{this.name}} ({{this.ticker}})
+                </a>
+                <form method="POST">
+                    <button type="submit" class="add-button" name="addButton" value="{{this.ticker}}">Add</button>
+                </form>
+                {{#if this.increased}}
+                <p>Price: {{this.price}} <span class="greenStock">+{{this.change}} ({{this.percentIncrease}}%)</span></p>
+                {{else}}
+                <p>Price: {{this.price}} <span class="redStock">{{this.change}} ({{this.percentIncrease}}%)</span></p>
+                {{/if}}
+                <p>Average Rating:
+                    {{#if this.averageRating}} {{#each this.ratingsArr}} <span class="fa fa-star checked"></span> {{/each}}
+                </p>
+                {{else}} No Ratings Found </p>
+                {{/if}}
+                <p class="stock-description">Description: {{this.description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="no-stock-info"><p>This user currently have no stocks added to your dashboard.</p></div>
+    {{/if}}
+    <br>
+    <br>
+</div>

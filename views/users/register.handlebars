@@ -1,0 +1,61 @@
+<div>
+    <h1>Register</h1>
+    
+    <form method="POST" action="/register" id="register-form">
+        <div>
+            <label for="firstName">First Name: </label>
+            <input type="text" name="firstName" placeholder ="First Name" id="firstName" value="{{post.firstName}}"/>
+        </div>
+
+        <div>
+            <label for="lastName">Last Name: </label>
+            <input type="text" name="lastName" placeholder ="Last Name" id="lastName" value="{{post.lastName}}"/>
+        </div>
+        
+        <div>
+            <label for="email">Email Address: </label>
+            <input type="email" name="email" placeholder ="Email Address" id="email" value="{{post.email}}"/>
+        </div>
+
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder ="Password" id="password" value="{{post.password}}">
+        </div>
+
+        <div>
+            <p>Gender: </p>
+            <input type="radio" name="gender" id="male" value="M">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" id="female" value="F">
+            <label for="female">Female</label><br>
+            <input type="radio" name="gender" id="other" value="O">
+            <label for="other">Other</label><br>
+        </div>
+
+        <div>
+            <label for="age">Age: </label>
+            <input type="number" name="age" placeholder ="Age" id="age" value="{{post.age}}">
+        </div>
+
+        <div>
+            <p>Profile Status: </p>
+            <input type="radio" name="status" id="public-radio" value="public">
+            <label for="public-radio">Public</label><br>
+            <input type="radio" name="status" id="private-radio" value="private">
+            <label for="private-radio">Private</label><br>
+        </div>
+        <button type="submit">Register</button> 
+    </form>
+
+    <div class="error-div">
+    {{#if hasError}}
+        <ul>
+            {{#each errors}}
+            <li>
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    </div>
+</div>

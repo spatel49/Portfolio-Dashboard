@@ -1,0 +1,56 @@
+<div id="stockList">
+    <h1>List of Stocks</h1>
+    <div>
+        <form action="/users/dashboard" method="POST">
+            <label>
+            Search for a ticker: 
+            <input type="text" name="searchTicker" placeholder="AAPL" class="full-width-input"/>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <form id="sortForm" method="POST">
+        <div class="stockMod">
+            <label for="sort">Sort By</label>
+            <select id="sort" name="sort">
+                <option value="name">name</option>
+                <option value="price">price</option>
+                <option value="rating">rating</option>
+            </select>
+            {{!-- <input type="submit"> --}}
+            <button type ="submit">Sort</button>
+        </div>
+    </form>
+
+
+    <div class="listLayout">
+        {{#each allCompanies}}
+        <div class="companyBox">
+            <a href="../companies/{{this.ticker}}">
+                {{this.name}} ({{this.ticker}})
+            </a>
+
+                <form method="POST">
+                <button type="submit" class="add-button" name="addButton" value="{{this.ticker}}">Add</button>
+                </form>
+ 
+            {{#if this.increased}}
+            <p>Price: {{this.price}} <span class="greenStock">+{{this.change}} ({{this.percentIncrease}}%)</span></p>
+            {{else}}
+            <p>Price: {{this.price}} <span class="redStock">{{this.change}} ({{this.percentIncrease}}%)</span></p>
+            {{/if}}
+            <p>Average Rating:
+                {{#if this.averageRating}} {{#each this.ratingsArr}} <span class="fa fa-star checked"></span> {{/each}}
+            </p>
+            {{else}} No Ratings Found </p>
+            {{/if}}
+            <p class="stock-description">Description: {{this.description}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+</div>
+
+{{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/public/js/sortStockList.js"></script> --}}

@@ -1,0 +1,60 @@
+<div>
+    <div class="company-info">
+        <h1>{{company.name}} ({{company.ticker}})</h1>
+        {{!-- <img src="{{company.logo}}" alt="{{company.name}}" class="company-img"> --}}
+        {{#if company.logo.length}}
+        <img src="{{company.logo}}" alt="{{company.name}}" class="company-img">        
+        {{else}}
+        <img src="/public/img/no_image.jpeg" alt="{{company.name}}" class="company-img">
+        {{/if}}
+        <p><span class="company-bold">Price:</span> {{company.price}}</p>
+        <p><span class="company-bold">Country:</span> {{company.country}}</p>
+        <p><span class="company-bold">Currency:</span> {{company.currency}}</p>
+        <p><span class="company-bold">Exchange:</span> {{company.exchange}}</p>
+        <p><span class="company-bold">IPO Date:</span> {{company.ipo}}</p>
+        <p><span class="company-bold">Market Capitalization:</span> {{company.marketCapitalization}}</p>
+        <p><span class="company-bold">Number of Outstanding Shares:</span> {{company.shareOutstanding}}</p>
+        <p><span class="company-bold">Industry:</span> {{company.finnhubIndustry}}</p>
+        <p><span class="company-bold">Phone:</span> {{company.phone}}</p>
+        <p><span class="company-bold">Website:</span> {{company.weburl}}</p>
+        <form method="POST" id="addButton">
+        <button type="submit" name="addButton">Add to Dashboard</button>
+        </form>
+        <br>
+        <hr>
+        <br>
+    </div>
+    <h2>Reviews:</h2>
+    {{#if reviewsExist}}
+    <div id='reviews'>
+        <h3>Average Rating Given: {{avgRating}}/5 </h3>
+        {{#each reviews}}
+            <p>
+                Date: {{this.date}}
+            <p> 
+            <p>
+                Review: {{this.review}}
+            </p>
+            <p>
+                User Rating: {{#each this.ratingsArr}} <span class="fa fa-star checked"></span> {{/each}}
+            </p>
+            <p>
+                Reviewer: <a href='/profile/{{this.traderEmail}}'>{{this.traderName}}</a>
+            </p>
+            <br>
+        {{/each}}
+    </div>
+    {{else}} <p>Reviews will be shown here. Be the first to write a review!</p>
+    {{/if}}
+    <hr>
+    <br>
+    <div>
+        <form method="POST" id="userReviews">
+        <label for="reviewVal" class="formLabel">Write Review: </label>
+        <input type="text" id="reviewVal" name="reviewVal" minlength="5" required><br><br>
+        <label for="ratingVal" class="formLabel">Enter Rating (1-5): </label>
+        <input type='number' id="ratingVal" name="ratingVal" min="1" max="5" required><br><br>
+        <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</div>

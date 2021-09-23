@@ -1,0 +1,81 @@
+<div>
+    <h1>Users You Are Following</h1>
+    <br>
+    {{#if followingNotExists}}
+        <p>No Users Followed Yet. Please enter a user email below to follow a user.</p>
+    {{else}}
+
+        <div class="container">
+            <div class="row">
+                {{#each allFollowing}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="our-team">
+                    <div class="picture">
+                    <img class="img-fluid" src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="profile-image">
+                    </div>
+                    <div class="team-content">
+                    <h2 class="name">{{this.firstName}} {{this.lastName}}</h2>
+                    <h3 class="title">{{this.email}}</h3>
+                    <form method="POST">
+                        <button type="submit" class="visit-button" name="visitButton" value="{{this.email}}">Visit Profile</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+    {{/if}}
+    <br>
+    <h2>Search for New Users</h2>
+        <form method="POST" id="userInput-form">
+        <label for="userInput" id="tickerInputLabel">Enter User Email: </label>
+        <input type="text" id="userInput" name="userInput" minlength="4" placeholder="abc@gmail.com" class="full-width-input">
+        <button type="submit">Search</button>
+        </form>
+    <br>
+    <div class="error-div">
+        {{#if hasError}}
+            <ul>
+                {{#each errors}}
+                <li>
+                    {{this}}
+                </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </div>
+
+    {{#if commonStocksExist}}
+    <hr>
+    <br>
+    <h2> Stock Picks Based On Users Followed</h2>
+        <div class="suggestionsLayout">
+            {{#each allCompanies}}
+            <div class="companyBoxSuggestion">
+                <a href="../companies/{{this.ticker}}">
+                    {{this.name}} ({{this.ticker}})
+                </a>
+                {{#if this.increased}}
+                <p>Price: {{this.price}} <span class="greenStock">+{{this.change}} ({{this.percentIncrease}}%)</span></p>
+                {{else}}
+                <p>Price: {{this.price}} <span class="redStock">{{this.change}} ({{this.percentIncrease}}%)</span></p>
+                {{/if}}
+                <p>Average Rating: 
+                    {{#if this.averageRating}} {{#each this.ratingsArr}} <span class="fa fa-star checked"></span> {{/each}}</p>
+                    {{else}} No Ratings Found </p>
+                    {{/if}}
+                
+                <form method="POST">
+                <button type="submit" class="add-button" name="addButton" value="{{this.ticker}}">Add</button>
+                </form>
+            </div>
+            {{/each}}
+        </div>
+    {{else}}
+    {{/if}}
+    <hr>
+    <br>
+    <br>
+</div>

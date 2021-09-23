@@ -1,0 +1,84 @@
+<div>
+    {{#if isMainUser}}
+    <h1>Hi {{userInfo.firstName}}! Here is an overview of your trading profile.</h1>
+    {{else}}
+    <h1> {{userInfo.firstName}} {{userInfo.lastName}}'s Profile</h1>
+        {{#if alreadyFollowed}}
+        <form method="POST">
+            <button type="submit" class="unfollow-button" name="unfollowButton" value="1">Unfollow User</button>
+        </form>
+        {{else}}
+        <form method="POST">
+            <button type="submit" class="follow-button" name="followButton" value="2">Follow User</button>
+        </form>
+        {{/if}}
+    {{/if}}
+    <br>
+    <hr>
+
+    <br>
+    <div class="card1">
+    <img src="https://www.drshaneholmes.com/wp-content/uploads/2020/03/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="John" style="width:100%">
+    <h1>{{userInfo.firstName}} {{userInfo.lastName}}</h1>
+    <p>{{userInfo.email}}</p>
+    <p>Age: {{userInfo.age}}</p>
+    <p class="title1">({{userInfo.status}})</p>
+    
+    {{#if isPrivate}}
+    <p><button class='button1' type="button">Private DashBoard</button></p>
+    {{else}}
+    <p><button class='button1' onclick="location.href='/users/dashboard/{{userInfo.email}}'" type="button">View DashBoard</button></p>
+    {{/if}}
+    </div>
+    <br>
+    <div>
+        {{#if reviewsExist}}
+            <div id='reviews'>
+                <h2>Average Rating Given: {{avgRating}}/5 </h2>
+                <br>
+                {{#each allReviews}}
+                    <h3>{{this.companyName}}, User Rating: {{#each this.ratingsArr}} <span class="fa fa-star checked"></span> {{/each}}</h3>
+                    <p>
+                        {{this.date}}
+                    <p> 
+                    <p>
+                        Review: {{this.review}}
+                    </p>
+                    <br>
+                {{/each}}
+            </div>
+        {{else}} 
+        <h2>Reviews</h2>
+        <p>Reviews will be shown here. {{userInfo.firstName}} has not yet written a review!</p>
+        {{/if}}
+    </div>
+    <br>
+    <div>
+        <h2>Members Following</h2>
+        {{#if isPrivate}}
+            <p>You do not have access to this information.</p>
+        {{else}}
+            {{#if isFollowing}}
+            {{#each allFollowing}}
+                <p>{{this.firstName}} {{this.lastName}}</p>
+                <form method="POST">
+                    <button type="submit" class="visit-button" value="{{this.email}}" name="visitButton">Visit Profile</button>
+                </form>
+                <br>
+            {{/each}}
+            {{else}}
+                <p>Not following any users.</p>
+            {{/if}}
+        {{/if}}
+    </div>
+    <br>
+    {{#if isMainUser}}
+    <div>
+        <h2>View Your History</h2>
+        <a href='/history'>View User History</a>
+    </div>
+    {{else}}
+    {{/if}}
+    <br>
+    <br>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "stockdashboard",
+  "version": "1.0.0",
+  "description": "CS 546 Project: Stock Dashboard",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "seed": "node ./tasks/seed.js"
+  },
+  "author": "Adam Farid, Cheng Cheng, Jeffrey Lee, Siddhanth Patel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.6",
+    "mongodb": "^3.6.3",
+    "newsapi": "^2.4.1",
+    "xss": "^1.0.8"
+  }
+}

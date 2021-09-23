@@ -1,0 +1,63 @@
+a {
+    color: #0058ba;
+}
+
+.listLayout {
+    display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+}
+
+.companyBox {
+    margin: 20px;
+    padding: 10px;
+    height: auto;
+    background-color: lightgrey;
+    width: 30%;
+    border-radius: 10px;
+}
+
+/* .companyBox:hover > .stock-description {
+    display: block;
+} */
+
+.greenStock {
+    color: #006b00;
+}
+
+.redStock {
+    color: #b61500;
+}
+
+.add-button {
+    float: right;
+}
+
+.add-button:hover {
+    background-color: lightcyan;
+}
+
+.remove-button {
+    float: right;
+}
+
+.remove-button:hover {
+    background-color: lightcyan;
+}
+
+.company-info {
+    padding-left: 10px;
+}
+
+.company-img {
+    margin: 30px 0;
+}
+
+.company-bold {
+    font-weight: bold;
+}
+
+.stock-description {
+    /* display: none; */
+    font-size: small;
+}

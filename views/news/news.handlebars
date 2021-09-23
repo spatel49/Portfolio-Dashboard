@@ -1,0 +1,29 @@
+<div>
+    <h1 id="myHeader">{{title}}</h1>
+    <br>
+    <hr>
+    <br>
+    <p>Search for Company News:</p>
+      <form method="POST" id="newsSubmit">
+        <label for="newsTerm" id="tickerInputLabel">Enter Company: </label>
+        <input type="text" id="newsTerm" name="tickerInput" minlength="2" placeholder="Tesla" class="full-width-input"><br><br>
+        <button type="submit">Submit</button>
+        </form>
+    <br>
+    
+    <div class="top-news-div">
+        {{#each topNews}}
+            <div class="news-div">
+                {{#if this.urlToImage}}
+                <img src="{{this.urlToImage}}" alt="{{this.source.name}}" class="news-img"><br>
+                {{else}}
+                <img src="/public/img/no_image.jpeg" alt="{{this.source.name}}" class="news-img"><br>
+                {{/if}}
+                <a href="{{this.url}}" target="_blank" class="news-title">{{this.title}}</a>
+                <p class="news-desc">{{this.description}}</p>
+                <p class="news-date">Date Published: {{this.publishedAt}}</p>
+            </div>
+        {{/each}}
+    </div>
+
+</div>

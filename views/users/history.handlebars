@@ -1,0 +1,22 @@
+<div>
+    <h1>User History</h1>
+    <br>
+    <hr>
+    <br>
+    <div>
+        {{#each userInfo.historyArray}}
+            <p>{{this}}</p>
+        {{/each}}
+    </div>
+    <br>
+    <br>
+    {{#if historyExists}}
+        <form method="POST" id="removeButton">
+        <button type="submit" name="removeButton">Remove All User History</button>
+        </form>
+    {{else}}
+        <p>No New History.</p>
+    {{/if}}
+    <br>
+    <br>
+</div>
