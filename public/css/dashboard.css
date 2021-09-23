@@ -1,0 +1,19 @@
+.suggestionsLayout {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.companyBoxSuggestion {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px;
+    height: auto;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.no-stock-info {
+    padding-top: 10px;
+}
+

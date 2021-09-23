@@ -1,0 +1,33 @@
+.top-news-div {
+    text-align: center;
+}
+
+.news-div {
+    border-top: solid 1px lightgray;
+    padding: 80px 0;
+}
+
+.news-img {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.news-title:hover {
+    color: black;
+}
+
+.news-desc {
+    color: #767676;
+} 
+
+.news-date {
+    font-size: 13px;
+    color: #767676;
+}

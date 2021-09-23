@@ -1,0 +1,29 @@
+.landingpage-div {
+    padding-top: 30px;
+    text-align: center;
+}
+
+main {
+    padding: 10px;
+}
+
+.landing-buttons {
+    padding-top: 30px;
+}
+
+button {
+    border-radius: 100px;
+    padding: 2px 16px;
+}
+
+.error-div {
+    display: inline-block;
+    background-color: lightcoral;
+    padding-right: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#navbarNav .nav-link {
+   color: #727373;
+}
