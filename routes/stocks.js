@@ -23,13 +23,6 @@ router.get('/stocksList', async (req, res) => {
         const allCompanies = await companies.getAllCompanies();
         const traderCompanies = await traders.getTraderCompanies(req.session.user._id);
 
-        // Updating prices of stocks when loading stocks list page (issue: eventually gets an error, i believe it's b/c of api calls)
-        // for(let company of allCompanies) {
-        //     await companies.updateCompany(company.ticker);
-        // }
-
-        // const allCompaniesUpdated = await companies.getAllCompanies();
-
         res.render('stocks/stocksList', {
             title: 'List of Stocks',
             loggedIn: true,
