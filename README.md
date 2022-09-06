@@ -1,8 +1,8 @@
 # CS546 Web Programming Final Project, Team 5
-
-# Demo  
+ 
 ![image](https://user-images.githubusercontent.com/16050804/188713091-0f307566-a9d1-43ba-aa84-4100640ad5eb.png)
-![image](https://user-images.githubusercontent.com/16050804/188713169-f595b142-bcaa-4cef-bb93-0996623b9d64.png)
+![image](https://user-images.githubusercontent.com/16050804/188713744-ea03312f-458c-495b-b935-e4e5822a6ccb.png)
+
 
 
 # How to Run  
