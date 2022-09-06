@@ -1,5 +1,9 @@
 # CS546 Web Programming Final Project, Team 5
 
+# Demo  
+![image](https://user-images.githubusercontent.com/16050804/188713091-0f307566-a9d1-43ba-aa84-4100640ad5eb.png)
+
+
 # How to Run  
 After cloning or downloading the files, move to the directory that contains ```app.js```.
 
